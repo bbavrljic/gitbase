@@ -1,0 +1,26 @@
+.left {
+    text-align: left;
+}
+
+.right {
+    text-align: right;
+}
+
+a {
+    target: "_blank";
+}
+
+black {
+    color: #000;
+}
+
+white {
+    color: #eee;
+}
+
+footer {
+    position: absolute;
+    bottom: 1em;
+    left: 1em;
+    z-index: 1;
+}
