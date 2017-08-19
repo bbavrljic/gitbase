@@ -1,3 +1,7 @@
+### CUSTOM ###
+
+# ignore all .idea settings
+.idea/
 
 # Created by https://www.gitignore.io/api/linux,osx,windows,jetbrains,netbeans,eclipse
 
