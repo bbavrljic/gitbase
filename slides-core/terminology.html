@@ -1,0 +1,59 @@
+<section>
+    <h2>Malo terminologije</h2>
+    <p>
+        repo, radni dir, komitovi ~ git pokazivac ~ grane, oznake ~ lokal vs udaljen
+    </p>
+</section>
+
+<section>
+    <h2>Sta je git repozitorijum</h2>
+    <ul class="left">
+        <li>git repo je bilo koji <b>dir</b> sa <b>.git</b> dirom u njemu.</li>
+        <li>radni dir (working dir) je <b>sve osim</b> .git dira</li>
+        <li><b>commit</b> je <b>zapakovana</b> verzija koda cuvana u .git-u</li>
+        <li>komitovi su <b>ulancani</b> na svog prethodnika</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Sta je git pokazivac</h2>
+    <img data-src="https://git-scm.com/figures/18333fig0308-tn.png" alt="gitk --all in a repo">
+    <p class="fragment left">
+        git pokazivac (commit-ish): SHA-1 id, grana, tag<br>
+        <span class="fragment">...a moze biti i definisan i kao relativan!</span>
+    </p>
+</section>
+
+<section>
+    <h2>Sta su onda grane</h2>
+    <p class="fragment left">
+        Oznake (tag) je najobicniji statican git <b>POKAZIVAC</b>
+    </p>
+    <p class="fragment left">
+        Grana (branch) je inkrementirajuci git <b>POKAZIVAC</b>
+    </p>
+    <p class="fragment left">
+        Na neki deo lanca <b>KOMITOVA</b>
+    </p>
+    <p class="fragment left">
+        Ostalo je: <b>nasa estetska interpretacija</b> git grafa.<br>
+        <span class="fragment">...tako da grane bas i nisu grane.</span>
+    </p>
+    <p class="fragment left">
+        <small>ps. na tekucu granu pokazuje HEAD koji je opet samo git <b>POKAZIVAC</b></small>
+    </p>
+</section>
+
+<section>
+    <h2>Local vs remote</h2>
+    <p class="left">...a ako radis sa timom</p>
+    <p class="fragment left">
+        u <b>LOKALNOM</b> repou:<br>kad se igras ili zabrljas == zabava !
+    </p>
+    <p class="fragment left">
+        u <b>UDALJENOM</b> repou:<br>kad se igras ili zabrljas == <b>bol istog trena</b> !
+    </p>
+    <p class="fragment left">
+        ipak, git je distribuiran pa se sve da popraviti
+    </p>
+</section>
