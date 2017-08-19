@@ -1,0 +1,145 @@
+<section>
+    <h2>Git naredbe</h2>
+    <p>
+        za pocetak ~ kretanje ~ dodavanje ~ gledanje ~ stapanje ~ deljenje
+    </p>
+</section>
+
+<section>
+    <h2>Za pocetak</h2>
+    <pre><code data-trim>
+
+    # da bi dohvatio udaljeni (remote) repo
+    <b>$git clone URL</b>
+
+    # da bi napravio svoj
+    <b>$git init</b>
+    # pamti da napravis .gitignore
+    # a, kad pozelis da podelis rad, moraces najpre
+    <b>$git remote add IME_REMOTA URL_REMOTA</b>
+
+    # git podrazumevano koristi "origin" kao ime remota
+
+    </code></pre>
+</section>
+
+<section>
+    <h2>Za kretanje</h2>
+    <pre><code data-trim>
+    # da bi otisao gde god
+    <b>$git checkout COMMIT_ISH</b>
+    # commit-ish je sha1 id, grana, tag
+
+    # napravi novu granu sa
+    <b>$git branch IME_NOVE_GRANE</b>
+    # obrisi granu sa
+    <b>$git branch -d IME_GRANE</b>
+
+    # napravi novi tag sa
+    <b>$git tag IME_NOVE_OZNAKE</b>
+    # obrisi tag sa
+    <b>$git tag -d IME_OZNAKE</b>
+    </code></pre>
+</section>
+
+<section>
+    <h2>Za dodavnje 1/2</h2>
+    <pre><code data-trim>
+
+    # najpre oznaci sta bi dodao
+    <b>$git add FILESPEC</b>
+    # ili dodaj sve
+    <b>$git add .</b>
+
+    # ako si pogresno oznacio, analogno
+    <b>$git reset FILESPEC</b>
+    <b>$git reset .</b>
+
+    </code></pre>
+</section>
+
+<section>
+    <h2>Za dodavnje 2/2</h2>
+    <pre><code data-trim>
+
+    # potvrdi da je stanje ocekivano sa
+    <b>$git status</b>
+
+    # ako je sve u redu, sacuvaj novu verziju sa
+    <b>$git commit -v</b>
+    # prva linija je naslov, sto kraci
+    # posle jedne prazne linije mozes da napises kratak opis
+
+    </code></pre>
+</section>
+
+<section>
+    <h2>Za gledanje</h2>
+    <pre><code data-trim>
+
+    # pre svega: <b>$git status</b>
+    # ali i
+    $gitk --all &
+
+    </code></pre>
+    <img src="res/img/gitkgitkdemo_20100903_111430_57888BE7.png">
+</section>
+
+<section>
+    <h2>Za stapanje</h2>
+    <pre><code class="diff" data-trim>
+
+    # za stapanje grane u tekucu
+    <b>$git merge IME_GRANE</b>
+
+    </code></pre>
+    <p class="fragment left">...ali ponekad dodje i do konflikta</p>
+</section>
+<section>
+    <h2>Konflikt izgleda poput</h2>
+    <pre><code class="diff" data-trim>
+
+    Bio jednom jedan zmaj
+
+    <<<<<<< CURRENT BRANCH CONTENT
+    A onda dosli seljani
+    i roknuse zmaja :)
+
+    @author KD
+    =======
+    I onda je zmaj sreo macu
+    i bili su najboljii drugari
+    >>>>>>> CHANGE WE TRY TO ADD TO IT
+    </code></pre>
+</section>
+<section>
+    <h2>Konflikt se resava</h2>
+    <pre><code data-trim>
+
+    # kad zavrsis da prepravljas file u konfliktu,
+    # oznacis ga kao resen sa:
+    <b>$git add IME_FILEA</b>
+
+    # kada resis i oznacis sve konflikte,
+    # zavrsavas stapanje sa:
+    <b>$git commit -v</b>
+    # docekace te autogenerisana merge poruka :)
+
+    </code></pre>
+    <p class="fragment left">
+        <small>ako zelis da odustanes od resavanja konflikta, kucaj: <b>$git merge --abort</b></small>
+    </p>
+</section>
+
+<section>
+    <h3>Za deljenje</h3>
+    <pre><code data-trim>
+
+    # da bi objavio svoje izmene na udaljenom repou
+    <b>$git push</b>
+
+    # da bi dovukao izmene sa udaljenog repoa
+    <b>$git pull</b>
+
+    </code></pre>
+</section>
