@@ -25,7 +25,8 @@ user.name .email
 core.editor
 
 touch za pravljenje .filename fileova (npr .gitignore)  
-za izlazak iz vima :q!
+za izlazak iz vima :q!  
+-h nad komandama
 
 raditi i ne raditi
 
