@@ -1,0 +1,6 @@
+[submodule "reveal.js"]
+	path = reveal.js
+	url = https://github.com/hakimel/reveal.js/
+[submodule "reveal_external"]
+	path = reveal_external
+	url = https://github.com/janschoepke/reveal_external
