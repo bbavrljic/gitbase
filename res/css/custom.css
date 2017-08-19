@@ -10,14 +10,6 @@ a {
     target: "_blank";
 }
 
-black {
-    color: #000;
-}
-
-white {
-    color: #eee;
-}
-
 footer {
     position: absolute;
     bottom: 1em;
