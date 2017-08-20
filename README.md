@@ -15,4 +15,5 @@ otvori `index.html` da bi video beleske :)
 
 ## changelog
 
+dodat zadatak
 dodat changelog
