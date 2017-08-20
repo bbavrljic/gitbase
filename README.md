@@ -16,4 +16,5 @@ otvori `index.html` da bi video beleske :)
 
 ## changelog
 
+dodat dosdonts
 inicjalna verzija gotova, dodat changelog
