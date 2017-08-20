@@ -6,7 +6,8 @@ Beleske i igraliste za drugu git radionicu by KD.
 
 najpre pokreni
 ```
-$git submodule init
+$cd gitbase/
+$git submodule update --init --recursive
 ```
 
 otvori `index.html` da bi video beleske :)

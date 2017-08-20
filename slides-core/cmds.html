@@ -8,9 +8,10 @@
 <section>
     <h2>Za pocetak</h2>
     <pre><code data-trim>
-
     # da bi dohvatio udaljeni (remote) repo
     <b>$git clone URL</b>
+    # ako postoji .gitmodules u repou, onda mora i
+    <b>$git submodule update --init --recursive</b>
 
     # da bi napravio svoj
     <b>$git init</b>
@@ -19,7 +20,6 @@
     <b>$git remote add IME_REMOTA URL_REMOTA</b>
 
     # git podrazumevano koristi "origin" kao ime remota
-
     </code></pre>
 </section>
 
