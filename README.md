@@ -2,6 +2,7 @@
 
 Beleske i igraliste za drugu git radionicu by KD.
 
+
 ## Kako koristiti
 
 najpre pokreni
@@ -11,3 +12,9 @@ $git submodule update --init --recursive
 ```
 
 otvori `index.html` da bi video beleske :)
+
+
+## changelog
+
+dodat dosdonts
+inicjalna verzija gotova, dodat changelog
