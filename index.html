@@ -24,13 +24,13 @@
     <!--<link rel="stylesheet" href="reveal.js/css/theme/white.css" id="theme">-->
     <!--<link rel="stylesheet" href="reveal.js/css/theme/blood.css" id="theme">-->
     <!--<link rel="stylesheet" href="reveal.js/css/theme/league.css" id="theme">-->
-    <link rel="stylesheet" href="reveal.js/css/theme/sky.css" id="theme">
+    <!-- <link rel="stylesheet" href="reveal.js/css/theme/sky.css" id="theme"> -->
     <!--<link rel="stylesheet" href="reveal.js/css/theme/beige.css" id="theme">-->
     <!--<link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">-->
     <!--<link rel="stylesheet" href="reveal.js/css/theme/serif.css" id="theme">-->
     <!--<link rel="stylesheet" href="reveal.js/css/theme/night.css" id="theme">-->
     <!--<link rel="stylesheet" href="reveal.js/css/theme/moon.css" id="theme">-->
-    <!--<link rel="stylesheet" href="reveal.js/css/theme/solarized.css" id="theme">-->
+    <link rel="stylesheet" href="reveal.js/css/theme/solarized.css" id="theme">
 
     <!-- Code syntax highlighting -->
     <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
@@ -42,6 +42,9 @@
         link.type = 'text/css';
         link.href = window.location.search.match(/print-pdf/gi) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
         document.getElementsByTagName('head')[0].appendChild(link);
+
+
+
     </script>
 
     <!--[if lt IE 9]>
@@ -56,49 +59,355 @@
     <!-- Any section element inside of this container is displayed as a slide -->
     <div class="slides">
         <!--@formatter:off-->
-                <section id="themes">
-                    <h2>Theme adjustment if need be</h2>
-                    <p>
-                        <!-- Hacks to swap themes after the page has loaded. Not flexible and only intended for the reveal.js demo deck. -->
-                        <a href="#" onclick="document.getElementById('theme').setAttribute('href','reveal.js/css/theme/black.css'); return false;">Black</a> -
-                        <a href="#" onclick="document.getElementById('theme').setAttribute('href','reveal.js/css/theme/white.css'); return false;">White</a> -
-                        <a href="#" onclick="document.getElementById('theme').setAttribute('href','reveal.js/css/theme/blood.css'); return false;">Blood</a> -
-                        <a href="#" onclick="document.getElementById('theme').setAttribute('href','reveal.js/css/theme/league.css'); return false;">League</a> -
-                        <a href="#" onclick="document.getElementById('theme').setAttribute('href','reveal.js/css/theme/sky.css'); return false;">Sky</a> -
-                        <a href="#" onclick="document.getElementById('theme').setAttribute('href','reveal.js/css/theme/beige.css'); return false;">Beige</a> -
-                        <a href="#" onclick="document.getElementById('theme').setAttribute('href','reveal.js/css/theme/simple.css'); return false;">Simple</a> <br>
-                        <a href="#" onclick="document.getElementById('theme').setAttribute('href','reveal.js/css/theme/serif.css'); return false;">Serif</a> -
-                        <a href="#" onclick="document.getElementById('theme').setAttribute('href','reveal.js/css/theme/night.css'); return false;">Night</a> -
-                        <a href="#" onclick="document.getElementById('theme').setAttribute('href','reveal.js/css/theme/moon.css'); return false;">Moon</a> -
-                        <a href="#" onclick="document.getElementById('theme').setAttribute('href','reveal.js/css/theme/solarized.css'); return false;">Solarized</a>
-                    </p>
-                </section>
-                <!--@formatter:on-->
-        <section>
-            <section id="start">
-                <h1>A bit about git</h1>
+        <section id="themes">
+            <h2>Theme adjustment if need be</h2>
+            <p>
+                <!-- Hacks to swap themes after the page has loaded. Not flexible and only intended for the reveal.js demo deck. -->
+                <a href="#" onclick="document.getElementById('theme').setAttribute('href','reveal.js/css/theme/black.css'); return false;">Black</a> -
+                <a href="#" onclick="document.getElementById('theme').setAttribute('href','reveal.js/css/theme/white.css'); return false;">White</a> -
+                <a href="#" onclick="document.getElementById('theme').setAttribute('href','reveal.js/css/theme/blood.css'); return false;">Blood</a> -
+                <a href="#" onclick="document.getElementById('theme').setAttribute('href','reveal.js/css/theme/league.css'); return false;">League</a> -
+                <a href="#" onclick="document.getElementById('theme').setAttribute('href','reveal.js/css/theme/sky.css'); return false;">Sky</a> -
+                <a href="#" onclick="document.getElementById('theme').setAttribute('href','reveal.js/css/theme/beige.css'); return false;">Beige</a> -
+                <a href="#" onclick="document.getElementById('theme').setAttribute('href','reveal.js/css/theme/simple.css'); return false;">Simple</a> <br>
+                <a href="#" onclick="document.getElementById('theme').setAttribute('href','reveal.js/css/theme/serif.css'); return false;">Serif</a> -
+                <a href="#" onclick="document.getElementById('theme').setAttribute('href','reveal.js/css/theme/night.css'); return false;">Night</a> -
+                <a href="#" onclick="document.getElementById('theme').setAttribute('href','reveal.js/css/theme/moon.css'); return false;">Moon</a> -
+                <a href="#" onclick="document.getElementById('theme').setAttribute('href','reveal.js/css/theme/solarized.css'); return false;">Solarized</a>
+            </p>
+        </section>
+        <!--@formatter:on-->
+        <section id="start">
+            <h1>A bit about git</h1>
 
-                <p class="right">
-                    <small>from KD with love</small>
+            <p class="right">
+                <small>from KD with love</small>
+            </p>
+        </section>
+
+        <section id="quote">
+            <p>
+                All virtues and flaws stem from the essence of what something really is and what that means for us.
+            </p>
+            <p class="right">
+                <small><i>~ by KD</i></small>
+            </p>
+        </section>
+
+        <section id="about">
+            <section>
+                <h1>What git is</h1>
+                <p>
+                    DVCS ~ about .git ~ git objects ~ git pointers
                 </p>
+            </section>
+            <section>
+                <h3>About distributed</h3>
+                <img src="res/img/distributed.png" style="height: 14em;">
+            </section>
+            <section>
+                <h2>.git folder</h2>
+                <ul>
+                    <li>repo is folder that contains `.git`</li>
+                    <li>working space is everything else</li>
+                    <li>.git contains among other things:</li>
+                    <ul>
+                        <li>local config</li>
+                        <li>full version history</li>
+                        <li>all trackers and flags</li>
+                    </ul>
+                </ul>
+            </section>
+            <section>
+                <h2>git objects</h2>
+                <p class="left">...or how git stores data:</p>
+                <img src="res/img/commit-and-tree.png">
+            </section>
+            <section>
+                <h2>git pointers</h2>
+                <p class="left">
+                    are basically anything that resolves to SHA1:<br>
+                    <i>branch, tag, relative pointers with ~ ^ or @{x}</i>
+                </p>
+                <img src="res/img/branch-and-history.png" style="height: 10em;">
             </section>
         </section>
 
-        <section data-external="slides-core/intro.html"></section>
-        <section data-external="slides-core/terminology.html"></section>
-        <section data-external="slides-core/before.html"></section>
-        <section data-external="slides-core/cmds.html"></section>
-        <section data-external="slides-core/dosdonts.html"></section>
+        <section id="break1">
+            <p class="left">
+                Everything in git stems from understanding of this two pieces of information:
+            </p>
+            <ol style="font-size: 0.7em;">
+                <li>understanding meaning behind `Distributed Version Control System`</li>
+                <li>how is data being stored (versions)</li>
+            </ol>
+            <p class="fragment right">
+                <i>And that constitutes basic knowledge about git.</i>
+            </p>
+        </section>
+
+        <section id="config">
+            <section>
+                <h1>Basic setup</h1>
+                <p>
+                    availability ~ cli vs gui ~ git config ~ .gitignore
+                </p>
+            </section>
+            <section>
+                <h2>Availability</h2>
+
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Tool</th>
+                        <th>win</th>
+                        <th>linux</th>
+                        <th>mac</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>git</td>
+                        <td>x</td>
+                        <td>x</td>
+                        <td>x</td>
+                    <tr>
+                    <tr>
+                        <td>gitk</td>
+                        <td>x</td>
+                        <td>x</td>
+                        <td>x*</td>
+                    <tr>
+                    <tr>
+                        <td>kdiff3**</td>
+                        <td>x</td>
+                        <td>x</td>
+                        <td>x</td>
+                    <tr>
+                    </tbody>
+                </table>
+
+                <p class="left">
+                    <br>
+                    <small>* when installed via brew</small>
+                    <br>
+                    <small>** additionally installed and needs to be defined in git config</small>
+                </p>
+            </section>
+            <section>
+                <h2>Case against gui</h2>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>cli</th>
+                        <th>gui client</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Different versions</td>
+                        <td>1</td>
+                        <td>maaaaany</td>
+                    <tr>
+                    <tr>
+                        <td>Flexibility</td>
+                        <td>+++</td>
+                        <td>+~</td>
+                    <tr>
+                    <tr>
+                        <td>Transparency</td>
+                        <td>+++</td>
+                        <td>-</td>
+                    <tr>
+                    <tr>
+                        <td>Info feedback</td>
+                        <td>+</td>
+                        <td>+++</td>
+                    <tr>
+                    </tbody>
+                </table>
+                <br>
+                <p class="fragment right">
+                    <small>In the end - use whatever, but know cli basics!</small>
+                </p>
+            </section>
+            <section>
+                <h2>Minimal config</h2>
+                <pre><code class="bash" data-trim>
+
+                    $git config --global user.name "YOUR_NAME"
+                    $git config --global user.email "YOUR@EMAIL"
+
+                    # Win only, if you dislike vim.
+                    $git config --global core.editor notepad
+
+                </code></pre>
+            </section>
+            <section>
+                <h2>.gitignore</h2>
+                <p class="left">Use <a href="http://gitignore.io/">gitignore.io</a>!</p>
+                <pre><code class="bash" data-trim>
+                    # Created by https://www.gitignore.io/api/linux,osx,windows,jetbrains+all,netbeans,eclipse
+
+                    ### Eclipse ###
+                    .metadata
+                    bin/
+                    tmp/
+                    *.tmp
+                    *.bak
+                    *.swp
+                    *~.nib
+                    local.properties
+                    .settings/
+
+                    #etc.etc.
+                </code></pre>
+            </section>
+        </section>
+
+        <section id="workspace">
+            <section>
+                <h1>Git workspace and workflow</h1>
+            </section>
+            <section data-state="cheatsheet" data-background-iframe="http://ndpsoftware.com/git-cheatsheet.html"></section>
+        </section>
+
+        <section id="cmds">
+            <section>
+                <h1>Commands rundown</h1>
+                <p>
+                    help ~ remote sync ~ local ~ undoing ~ demo
+                </p>
+            </section>
+            <section>
+                <h2>Always remember</h2>
+                <ul>
+                    <li>every git command comes with manual:</li>
+                    <ul>
+                        <li>for short help:<code>$git &lt;cmd&gt; -h</code></li>
+                        <li> for full manual:
+                            <ul>
+                                <li><code>$git &lt;cmd&gt; --help</code> or</li>
+                                <li><code>$git help &lt;cmd&gt;</code></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <li>for quick-start guide: <code>git help tutorial</code></li>
+                    <ul>
+                        <li>to list all available guides: <code>$git help -g</code></li>
+                    </ul>
+                </ul>
+            </section>
+            <section>
+                <h2>Remote sync</h2>
+                <pre><code class="bash" data-trim>
+
+                    $git clone `URL`
+                    # same as init + remote add + fetch --all + checkout master
+
+                    $git pull &lt;remote&gt;:&lt;branch&gt;
+                    # same as fetch &lt;remote&gt;:&lt;branch&gt; + merge &lt;remote&gt;/&lt;branch&gt;
+
+                    $git push [--set-upstream] &lt;remote&gt;
+                    # set-upstream only when first time pushing new branch
+
+                </code></pre>
+            </section>
+            <section>
+                <h2>Local</h2>
+                <pre><code class="bash" data-trim>
+
+                    $git status
+                    $gitk [--all] [&]
+                    # to visualise current state
+
+                    $git branch &lt;branch_name&gt;
+                    $git checkout [-b] &lt;branch_tag_or_SHA1&gt;
+                    # for moving around
+
+                    $git merge &lt;branch&gt;
+                    # for merging in changes from &lt;branch&gt; into current branch
+
+                    $git add [-A | -i]
+                    $git commit [-ve | -m "message"]
+                    $git gui
+                    # for visual and/or partial commiting
+
+                </code></pre>
+            </section>
+            <section>
+                <h2>Undoing</h2>
+                <pre><code class="bash" data-trim>
+
+                    $git merge --abort
+                    # when not wanting to deal with conflict resolution
+
+                    $git reset [--hard] HEAD
+                    # unstage [throw away] changes
+
+                </code></pre>
+            </section>
+
+            <section data-state="gitintuition" data-background-iframe="http://pcottle.github.io/learnGitBranching/"></section>
+        </section>
+
+        <section id="conflicted">
+            <section>
+                <h1>Conflicts</h1>
+                <p>
+                    looks like ~ resolved by
+                </p>
+            </section>
+            <section>
+                <h2>Looks like</h2>
+                <pre><code class="java" data-trim>
+
+                    This line was here before and did not change
+
+                    <<<<<<< CURRENT BRANCH CONTENT
+                    I was just working on this
+
+                    @author KD
+                    =======
+                    BUT on remote, someone was editing same line
+                    >>>>>>> CHANGE WE TRY TO ADD TO IT
+
+                    This line is also as it was
+
+                </code></pre>
+            </section>
+            <section>
+                <h2>Resolved by</h2>
+                <pre><code class="bash" data-trim>
+
+                    # cleanup file of >>> <<< === artifacts, confirm all is working
+                    # mark as resolved with:
+                    $git add &lt;filename&gt;
+
+                    # when all files are marked as resolved (added):
+                    $git commit -v
+
+                </code></pre>
+            </section>
+        </section>
+
+        <!--<section data-external="slides-core/intro.html"></section>-->
+        <!--<section data-external="slides-core/terminology.html"></section>-->
+        <!--<section data-external="slides-core/before.html"></section>-->
+        <!--<section data-external="slides-core/cmds.html"></section>-->
+        <!--<section data-external="slides-core/dosdonts.html"></section>-->
         <section data-external="slides-core/linkstools.html"></section>
 
-        <section>
-            <section id="end">
+        <section id="end">
+            <section>
                 <h1>QA</h1>
             </section>
-            <section data-background-video="https://i.giphy.com/media/wPUkYwNOY4sF2/giphy.mp4"
+            <!--https://media.giphy.com/media/YQitE4YNQNahy/giphy-large.gif-->
+            <section data-background-video="https://i.giphy.com/media/YQitE4YNQNahy/giphy.mp4"
                      data-background-video-loop="true"
                      data-background-size="contain">
-                <h1>TY</h1>
+                <h1>Happy hacking!</h1>
             </section>
         </section>
 
@@ -171,6 +480,9 @@
             footer.style.display = 'none';
         }
     });
+
+
+
 
 
 </script>

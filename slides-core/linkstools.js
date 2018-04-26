@@ -2,13 +2,13 @@ function addRevealEvent(stateName, desc, style) {
     Reveal.addEventListener(stateName, function (event) {
         var footer = document.getElementsByTagName("footer")[0];
         footer.innerHTML = '[ ' + desc + ' ]';
-        footer.style = style || 'display:block; color:#000;';
+        footer.style = style || 'display:block; color:#586e75;';
     });
 }
 
-addRevealEvent('gitignore', 'za generisanje inicjalnog .gitignore file-a');
-addRevealEvent('editorconf', 'za definisanje konzistentnog stila koda');
-addRevealEvent('cheatsheet', 'interaktivni cheatsheet za git');
-addRevealEvent('gitintuition', 'git tutrial sa vizualizaciom stabla', 'display:block; color:#eee;');
-addRevealEvent('gitcodecademy', 'git tutorial sa realnim okruzenjem', 'display:block; color:#000; left:3em;');
-addRevealEvent('gitbmodel', 'git branching model - detaljno');
+addRevealEvent('gitignore', '.gitignore generator');
+addRevealEvent('editorconf', 'cross-ide codestyle definition');
+addRevealEvent('cheatsheet', 'interactive git cheatsheet');
+addRevealEvent('gitintuition', 'git tutrial with visualisation');
+addRevealEvent('gitcodecademy', 'git tutorial with realistic env');
+addRevealEvent('gitbmodel', 'git branching model');
