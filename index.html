@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>A bit about git - brought to you by KD</title>
+    <title>Git adv bits - by branko</title>
 
     <meta name="description" content="Presentation notes for git presentation about git">
     <meta name="author" content="KD">
@@ -24,13 +24,13 @@
     <!--<link rel="stylesheet" href="reveal.js/css/theme/white.css" id="theme">-->
     <!--<link rel="stylesheet" href="reveal.js/css/theme/blood.css" id="theme">-->
     <!--<link rel="stylesheet" href="reveal.js/css/theme/league.css" id="theme">-->
-    <!-- <link rel="stylesheet" href="reveal.js/css/theme/sky.css" id="theme"> -->
+    <link rel="stylesheet" href="reveal.js/css/theme/sky.css" id="theme">
     <!--<link rel="stylesheet" href="reveal.js/css/theme/beige.css" id="theme">-->
     <!--<link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">-->
     <!--<link rel="stylesheet" href="reveal.js/css/theme/serif.css" id="theme">-->
     <!--<link rel="stylesheet" href="reveal.js/css/theme/night.css" id="theme">-->
     <!--<link rel="stylesheet" href="reveal.js/css/theme/moon.css" id="theme">-->
-    <link rel="stylesheet" href="reveal.js/css/theme/solarized.css" id="theme">
+    <!--<link rel="stylesheet" href="reveal.js/css/theme/solarized.css" id="theme">-->
 
     <!-- Code syntax highlighting -->
     <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
@@ -42,6 +42,12 @@
         link.type = 'text/css';
         link.href = window.location.search.match(/print-pdf/gi) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
         document.getElementsByTagName('head')[0].appendChild(link);
+
+
+
+
+
+
 
 
 
@@ -78,318 +84,215 @@
         </section>
         <!--@formatter:on-->
         <section id="start">
-            <h1>A bit about git</h1>
+            <h1>Git advanced</h1>
 
             <p class="right">
-                <small>from KD with love</small>
-            </p>
-        </section>
-
-        <section id="quote">
-            <p>
-                All virtues and flaws stem from the essence of what something really is and what that means for us.
-            </p>
-            <p class="right">
-                <small><i>~ by KD</i></small>
-            </p>
-        </section>
-
-        <section id="about">
-            <section>
-                <h1>What git is</h1>
-                <p>
-                    DVCS ~ about .git ~ git objects ~ git pointers
-                </p>
-            </section>
-            <section>
-                <h3>About distributed</h3>
-                <img src="res/img/distributed.png" style="height: 14em;">
-            </section>
-            <section>
-                <h2>.git folder</h2>
-                <ul>
-                    <li>repo is folder that contains `.git`</li>
-                    <li>working space is everything else</li>
-                    <li>.git contains among other things:</li>
-                    <ul>
-                        <li>local config</li>
-                        <li>full version history</li>
-                        <li>all trackers and flags</li>
-                    </ul>
-                </ul>
-            </section>
-            <section>
-                <h2>git objects</h2>
-                <p class="left">...or how git stores data:</p>
-                <img src="res/img/commit-and-tree.png">
-            </section>
-            <section>
-                <h2>git pointers</h2>
-                <p class="left">
-                    are basically anything that resolves to SHA1:<br>
-                    <i>branch, tag, relative pointers with ~ ^ or @{x}</i>
-                </p>
-                <img src="res/img/branch-and-history.png" style="height: 10em;">
-            </section>
-        </section>
-
-        <section id="break1">
-            <p class="left">
-                Everything in git stems from understanding of this two pieces of information:
-            </p>
-            <ol style="font-size: 0.7em;">
-                <li>understanding meaning behind `Distributed Version Control System`</li>
-                <li>how is data being stored (versions)</li>
-            </ol>
-            <p class="fragment right">
-                <i>And that constitutes basic knowledge about git.</i>
+                <small><i>by branko</i></small>
             </p>
         </section>
 
         <section id="config">
-            <section>
-                <h1>Basic setup</h1>
-                <p>
-                    availability ~ cli vs gui ~ git config ~ .gitignore
-                </p>
-            </section>
-            <section>
-                <h2>Availability</h2>
-
-                <table>
-                    <thead>
-                    <tr>
-                        <th>Tool</th>
-                        <th>win</th>
-                        <th>linux</th>
-                        <th>mac</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>git</td>
-                        <td>x</td>
-                        <td>x</td>
-                        <td>x</td>
-                    <tr>
-                    <tr>
-                        <td>gitk</td>
-                        <td>x</td>
-                        <td>x</td>
-                        <td>x*</td>
-                    <tr>
-                    <tr>
-                        <td>kdiff3**</td>
-                        <td>x</td>
-                        <td>x</td>
-                        <td>x</td>
-                    <tr>
-                    </tbody>
-                </table>
-
-                <p class="left">
-                    <br>
-                    <small>* when installed via brew</small>
-                    <br>
-                    <small>** additionally installed and needs to be defined in git config</small>
-                </p>
-            </section>
-            <section>
-                <h2>Case against gui</h2>
-                <table>
-                    <thead>
-                    <tr>
-                        <th>Feature</th>
-                        <th>cli</th>
-                        <th>gui client</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>Different versions</td>
-                        <td>1</td>
-                        <td>maaaaany</td>
-                    <tr>
-                    <tr>
-                        <td>Flexibility</td>
-                        <td>+++</td>
-                        <td>+~</td>
-                    <tr>
-                    <tr>
-                        <td>Transparency</td>
-                        <td>+++</td>
-                        <td>-</td>
-                    <tr>
-                    <tr>
-                        <td>Info feedback</td>
-                        <td>+</td>
-                        <td>+++</td>
-                    <tr>
-                    </tbody>
-                </table>
-                <br>
-                <p class="fragment right">
-                    <small>In the end - use whatever, but know cli basics!</small>
-                </p>
-            </section>
-            <section>
-                <h2>Minimal config</h2>
-                <pre><code class="bash" data-trim>
-
-                    $git config --global user.name "YOUR_NAME"
-                    $git config --global user.email "YOUR@EMAIL"
-
-                    # Win only, if you dislike vim.
-                    $git config --global core.editor notepad
-
-                </code></pre>
-            </section>
-            <section>
-                <h2>.gitignore</h2>
-                <p class="left">Use <a href="http://gitignore.io/">gitignore.io</a>!</p>
-                <pre><code class="bash" data-trim>
-                    # Created by https://www.gitignore.io/api/linux,osx,windows,jetbrains+all,netbeans,eclipse
-
-                    ### Eclipse ###
-                    .metadata
-                    bin/
-                    tmp/
-                    *.tmp
-                    *.bak
-                    *.swp
-                    *~.nib
-                    local.properties
-                    .settings/
-
-                    #etc.etc.
-                </code></pre>
-            </section>
+            <p class="left">
+                <small><i>but before we continue</i></small>
+            </p>
+            <h1>Git config</h1>
         </section>
 
-        <section id="workspace">
-            <section>
-                <h1>Git workspace and workflow</h1>
-            </section>
-            <section data-state="cheatsheet" data-background-iframe="http://ndpsoftware.com/git-cheatsheet.html"></section>
+        <section>
+            <h2>Custom editor</h2>
+            <pre><code class="bash" data-trim>
+                # Default is `vim`
+                # On Win, you can select notepad++ during install,
+                # but if you can always didn't you can:
+
+                $git config --global core.editor &lt;option&gt;
+
+                # some win options:
+                win notepad   : notepad
+                notepad++     : "'C:/Program Files (x86)/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"
+                sublime text 3: "'C:/Program Files/Sublime Text 3/sublime_text.exe' -n -w"
+
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>Git config cascade</h2>
+            <ul>
+                <li>On Win there are actually 4!</li>
+                <ul>
+                    <li>:ProgramData (win only)</li>
+                    <li><b>system</b>:Installation Folder (win only)</li>
+                    <li><b>global</b>:Home (all)</li>
+                    <li><b>local</b>:Repo (all)</li>
+                </ul>
+            </ul>
+            <pre><code class="bash" data-trim>
+                # to list config source, use:
+
+                $git config --show-origin --list
+
+                # if git behaves strangely, check the cascade.
+            </code></pre>
+        </section>
+
+        <section id="short">
+            <h1>Defining shortcuts</h1>
+        </section>
+
+        <section>
+            <h2>Defining shortcuts</h2>
+            <ul>
+                <li>edit file <i>~/.bashrc</i></li>
+                <ul>
+                    <li>
+                        home folder (~) in Win is:<br>
+                        <i>C:/Users/&lt;your_username&gt;</i>
+                    </li>
+                    <li>create <i>~/.bashrc</i> if it does not exist</li>
+                </ul>
+            </ul>
+            <pre><code class="bash" data-trim>
+                # use `alias` to define a shortcut, for example:
+
+                alias c="git checkout"
+                __git_complete c _git_checkout
+
+                # always add __git_complete at the end
+                # to get git cmd autocomplete functionality, format:
+                __git_complete &lt;your_alias&gt; __git_&lt;actual_git_cmd_name&gt;
+            </code></pre>
+        </section>
+
+        <section id="log">
+            <h1>Viewing history</h1>
+        </section>
+
+        <section>
+            <h2>There is always <i>gitk</i></h2>
+            <pre><code data-trim>$gitk --all &</code></pre>
+            <img src="res/img/gitkgitkdemo_20100903_111430_57888BE7.png">
+        </section>
+
+        <section>
+            <h2>Quick look</h2>
+            <pre><code class="bash" data-trim>
+                $git log --oneline
+                         --graph
+                         --decorate
+                         --all
+                         --n ###
+
+                # for custom look use `--format`, for example:
+                ... --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%n''%C(bold yellow)%d%C(reset)'"
+
+            </code></pre>
         </section>
 
         <section id="cmds">
-            <section>
-                <h1>Commands rundown</h1>
-                <p>
-                    help ~ remote sync ~ local ~ undoing ~ demo
-                </p>
-            </section>
-            <section>
-                <h2>Always remember</h2>
-                <ul>
-                    <li>every git command comes with manual:</li>
-                    <ul>
-                        <li>for short help:<code>$git &lt;cmd&gt; -h</code></li>
-                        <li> for full manual:
-                            <ul>
-                                <li><code>$git &lt;cmd&gt; --help</code> or</li>
-                                <li><code>$git help &lt;cmd&gt;</code></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <li>for quick-start guide: <code>git help tutorial</code></li>
-                    <ul>
-                        <li>to list all available guides: <code>$git help -g</code></li>
-                    </ul>
-                </ul>
-            </section>
-            <section>
-                <h2>Remote sync</h2>
-                <pre><code class="bash" data-trim>
-
-                    $git clone `URL`
-                    # same as init + remote add + fetch --all + checkout master
-
-                    $git pull &lt;remote&gt;:&lt;branch&gt;
-                    # same as fetch &lt;remote&gt;:&lt;branch&gt; + merge &lt;remote&gt;/&lt;branch&gt;
-
-                    $git push [--set-upstream] &lt;remote&gt;
-                    # set-upstream only when first time pushing new branch
-
-                </code></pre>
-            </section>
-            <section>
-                <h2>Local</h2>
-                <pre><code class="bash" data-trim>
-
-                    $git status
-                    $gitk [--all] [&]
-                    # to visualise current state
-
-                    $git branch &lt;branch_name&gt;
-                    $git checkout [-b] &lt;branch_tag_or_SHA1&gt;
-                    # for moving around
-
-                    $git merge &lt;branch&gt;
-                    # for merging in changes from &lt;branch&gt; into current branch
-
-                    $git add [-A | -i]
-                    $git commit [-ve | -m "message"]
-                    $git gui
-                    # for visual and/or partial commiting
-
-                </code></pre>
-            </section>
-            <section>
-                <h2>Undoing</h2>
-                <pre><code class="bash" data-trim>
-
-                    $git merge --abort
-                    # when not wanting to deal with conflict resolution
-
-                    $git reset [--hard] HEAD
-                    # unstage [throw away] changes
-
-                </code></pre>
-            </section>
-
-            <section data-state="gitintuition" data-background-iframe="http://pcottle.github.io/learnGitBranching/"></section>
+            <h2>Commands <b>quick</b> overview</h2>
+            <p class="right">
+                <small><i>PLEASE! if you wish, do stop me for more info.</i></small>
+            </p>
         </section>
 
-        <section id="conflicted">
-            <section>
-                <h1>Conflicts</h1>
-                <p>
-                    looks like ~ resolved by
-                </p>
-            </section>
-            <section>
-                <h2>Looks like</h2>
-                <pre><code class="java" data-trim>
+        <section>
+            <h2>Always remember</h2>
+            <ul>
+                <li>every git command comes with manual:</li>
+                <ul>
+                    <li>for short help:<code>$git &lt;cmd&gt; -h</code></li>
+                    <li> for full manual:
+                        <ul>
+                            <li><code>$git &lt;cmd&gt; --help</code> or</li>
+                            <li><code>$git help &lt;cmd&gt;</code></li>
+                        </ul>
+                    </li>
+                </ul>
+                <li>most git commands come with some sort of dry-run option</li>
+            </ul>
+        </section>
 
-                    This line was here before and did not change
+        <section>
+            <h2>Moving around</h2>
+            <pre><code class="bash" data-trim>
+                $git checkout -b    # branch + checkout
+                $git checkout -B    # branch --force + checkout
 
-                    <<<<<<< CURRENT BRANCH CONTENT
-                    I was just working on this
+                $git reset --hard   # for full undo and for jumping around
 
-                    @author KD
-                    =======
-                    BUT on remote, someone was editing same line
-                    >>>>>>> CHANGE WE TRY TO ADD TO IT
+                $git stash [save]   # quick save work in progress
+                $git stash apply    # restore top stashed change
+                $git stash drop     # remove from stash last stashed change
+                $git stash pop      # stash apply + stash drop
 
-                    This line is also as it was
+                $git branch -d      # delete branch
+                $git branch -D      # force delete branch
+            </code></pre>
+        </section>
 
-                </code></pre>
-            </section>
-            <section>
-                <h2>Resolved by</h2>
-                <pre><code class="bash" data-trim>
+        <section>
+            <h2>Selective adding</h2>
+            <pre><code class="bash" data-trim>
+                $git gui
 
-                    # cleanup file of >>> <<< === artifacts, confirm all is working
-                    # mark as resolved with:
-                    $git add &lt;filename&gt;
+                # but also
+                $git add -i
+                # short for --interactive
 
-                    # when all files are marked as resolved (added):
-                    $git commit -v
+                # and as always
+                $git commit --verbose --edit
+                # to commit with diff overview
+            </code></pre>
+        </section>
 
-                </code></pre>
-            </section>
+        <section>
+            <h2>Cleaning up</h2>
+            <pre><code class="bash" data-trim>
+                $git rebase -i &lt;cmd&gt;
+
+                # From there we can:
+                # p, pick = use commit
+                # r, reword = use commit, but edit the commit message
+                # e, edit = use commit, but stop for amending
+                # s, squash = use commit, but meld into previous commit
+                # f, fixup = like "squash", but discard this commit's log message
+                # x, exec = run command (the rest of the line) using shell
+                # d, drop = remove commit
+
+                # in case of trouble or fear
+                $git rebase --abort
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>Finding lost commits</h2>
+            <pre><code class="bash" data-trim>
+                $git reflog
+
+                # example output:
+                62926de (HEAD -> adv, en) HEAD@{0}: rebase -i (abort): updating HEAD
+                62926de (HEAD -> adv, en) HEAD@{1}: rebase: aborting
+                62926de (HEAD -> adv, en) HEAD@{2}: reset: moving to HEAD
+                62926de (HEAD -> adv, en) HEAD@{3}: checkout: moving from en to adv
+                62926de (HEAD -> adv, en) HEAD@{4}: reset: moving to 6292
+                489150f (origin/master, origin/HEAD, master) HEAD@{5}: reset: moving to HEAD~2
+                fb9581c HEAD@{6}: checkout: moving from fuubar to en
+                b0b000a (fuubar) HEAD@{7}: commit (merge): Merge branch 'en' into fuubar
+                4064e25 HEAD@{8}: commit: conflict ready
+                ...
+            </code></pre>
+        </section>
+
+        <section id="bonus">
+            <h1>Bonus round</h1>
+        </section>
+
+        <section>
+            <h2>For debuging</h2>
+        </section>
+
+        <section>
+            <h2>Reverting a merge commit</h2>
         </section>
 
         <!--<section data-external="slides-core/intro.html"></section>-->
@@ -400,15 +303,13 @@
         <section data-external="slides-core/linkstools.html"></section>
 
         <section id="end">
-            <section>
-                <h1>QA</h1>
-            </section>
-            <!--https://media.giphy.com/media/YQitE4YNQNahy/giphy-large.gif-->
-            <section data-background-video="https://i.giphy.com/media/YQitE4YNQNahy/giphy.mp4"
-                     data-background-video-loop="true"
-                     data-background-size="contain">
-                <h1>Happy hacking!</h1>
-            </section>
+            <h1>QA</h1>
+        </section>
+
+        <section data-background-video="https://i.giphy.com/media/YQitE4YNQNahy/giphy.mp4"
+                 data-background-video-loop="true"
+                 data-background-size="contain">
+            <h2 style="color: #cfcfcf;">Happy hacking!</h2>
         </section>
 
     </div>
@@ -480,10 +381,6 @@
             footer.style.display = 'none';
         }
     });
-
-
-
-
 
 </script>
 
