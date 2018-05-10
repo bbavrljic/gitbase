@@ -51,6 +51,8 @@
 
 
 
+
+
     </script>
 
     <!--[if lt IE 9]>
@@ -289,10 +291,145 @@
 
         <section>
             <h2>For debuging</h2>
+            <pre><code class="bash" data-trim>
+                $git bisect start   # enter bisect mode
+                $git bisect bad     # mark current commit as bad
+                $git bisect good &lt;old_good_commit&gt; # some old known good commit
+                # 1. with bad and good commit set, bisect will do reset for us.
+                # 2. test current commit and mark it either good or bad
+                # repeat until done! profit?
+
+                # when done:
+                $git bisect reset
+
+                # for demo see:
+                https://github.com/simondolle/git-bisect-sample
+            </code></pre>
         </section>
 
         <section>
-            <h2>Reverting a merge commit</h2>
+            <h2>Reverting a bad merge</h2>
+            <p class="left">Problem setup:</p>
+            <p class="left">Branch got merged by mistake and work was continued atop of it.</p>
+            <pre><code class="bash" data-trim>
+                # repo:
+                [master]   --o--o--M--x--x
+                [feature]  --o--A-/
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>Proposed solution</h2>
+            <pre><b><code class="bash" data-trim>
+                # repo overview:
+                [master]   --o--o--M--x--x
+                [feature]  --o--A-/
+            </code></b></pre>
+            <pre><code class="bash" data-trim>
+                # first, notify your colleagues to pause work on master
+                # 1. then from master run:
+                (@master)$git revert -m &lt;M&gt;
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>Proposed solution</h2>
+            <pre><b><code class="bash" data-trim>
+                # repo overview:
+                [master]   --o--o--M--x--x#--W
+                [feature]  --o--A-/
+            </code></b></pre>
+            <pre><code class="bash" data-trim>
+                # 2. after conflict resolution, run:
+                (@master)$git commit -ave
+                # that will create commit `W` and revert changes of merge
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>Proposed solution</h2>
+            <pre><b><code class="bash" data-trim>
+                # repo overview:
+                [master]   --o--o--M--x--x--W
+                [feature]  --o--A-/#---------\-R--Я
+            </code></b></pre>
+            <pre><code class="bash" data-trim>
+                # 3. prepare for further development:
+                 (@master)$git checkout feature
+                (@feature)$git merge --no-ff master
+                (@feature)$git revert &lt;W&gt;
+            </code></pre>
+            <p class="left">
+                We need merge and revert of a revert because:<br>
+                <b>code reversal != history reversal</b>
+            </p>
+        </section>
+
+        <section>
+            <h4><b>code reversal != history reversal</b></h4>
+            <img style="width: 100%;" src="res/img/unmerge5.png">
+            <p class="left">
+                from git's perspective,
+            </p>
+        </section>
+
+        <section>
+            <h4><b>code reversal != history reversal</b></h4>
+            <img style="width: 100%;" src="res/img/unmerge51.png">
+            <p class="left">
+                <b>C8</b> merged in <b>C5</b> and <b>C6</b>,<br>
+                adding <b>+ch1</b> and <b>+ch2</b> with them
+            </p>
+        </section>
+
+        <section>
+            <h4><b>code reversal != history reversal</b></h4>
+            <img style="width: 100%;" src="res/img/unmerge52.png">
+            <p class="left">
+                <b>^C8</b> reverted the code of <b>-ch1</b> and <b>-ch2</b>
+            </p>
+        </section>
+
+        <section>
+            <h4><b>code reversal != history reversal</b></h4>
+            <img style="width: 100%;" src="res/img/unmerge5.png">
+            <p class="left">
+                <b>BUT</b> history of <b>C5</b> and <b>C6</b><br>
+                being merged in <b>remains!</b>
+            </p>
+        </section>
+
+        <section>
+            <h4><b>code reversal != history reversal</b></h4>
+            <img style="width: 100%;" src="res/img/unmerge53.png">
+            <p class="left">
+                ...thus when trying to re-merge branch,<br>
+                now fixed with <b>C11</b>
+            </p>
+        </section>
+
+        <section>
+            <h4><b>code reversal != history reversal</b></h4>
+            <img style="width: 100%;" src="res/img/unmerge54.png">
+            <p class="left">
+                ...only code from <b>C11</b> gets merged in,<br>
+                because code from <b>C5</b> and <b>C6</b><br>
+                is perceived as already present!
+            </p>
+        </section>
+
+        <section>
+            <h2>Proposed solution</h2>
+            <pre><b><code class="bash" data-trim>
+                # repo overview:
+                [master]   --o--o--M--x--x--W
+                [feature]  --o--A-/#---------\-R--Я
+            </code></b></pre>
+            <p style="font-size: 0.95em;" class="left">
+                Due to code reversal != history reversal,
+                we need to ensure that our previous changes are reintroduced.
+            </p>
+            <p style="font-size: 0.95em;" class="left">Revert of a revert is one solution to this problem.</p>
         </section>
 
         <!--<section data-external="slides-core/intro.html"></section>-->
@@ -381,6 +518,8 @@
             footer.style.display = 'none';
         }
     });
+
+
 
 </script>
 
